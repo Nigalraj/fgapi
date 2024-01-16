@@ -64,7 +64,7 @@ const Estimates = sequelize.define('Estimates', {
     allowNull: true,
   },
   status: {
-    type: DataTypes.ENUM(...Object.values(EstimateStatus)),
+    type: DataTypes.BOOLEAN,
     allowNull: true,
     validate: {
       isIn: {

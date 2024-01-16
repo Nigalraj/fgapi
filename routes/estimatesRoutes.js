@@ -6,9 +6,7 @@ const Leads = require('../models/leads');
 router.post('/', async (req, res) => {
     try {
         const leadId = req.body.LeadsId;
-        console.log(leadId,"fjhf");
         const Lead = await Leads.findOne({where:{LeadsId:leadId,IsOpportunity:true}});
-        console.log(Lead,"ghhb");
 
         if(!Lead){
           return res.status(400).json({error:`LeadsId does not exist or is not an opportunity.`})
@@ -73,7 +71,6 @@ router.post('/changeorder', async (req, res) => {
           DefaultEstimate: false,
           Locked: false,
       };
-
       const estimateData = { ...defaultValues, ...req.body, ChangeOrder: true };
 
       const newEstimate = await Estimates.create(estimateData);
@@ -84,6 +81,29 @@ router.post('/changeorder', async (req, res) => {
       res.status(500).json({ error: 'Internal Server Error' });
   }
 });
+
+router.post('/duplicateestimate/:estimateId', async (req, res) => {
+  const { estimateId } = req.params;
+
+  try {
+    const existingEstimate = await Estimates.findByPk(estimateId);
+
+    if (!existingEstimate) {
+      return res.status(404).json({ error: 'Estimate not found' });
+    }
+    const duplicatedData = { ...existingEstimate.toJSON() };
+    // delete duplicatedData.EstimateId;
+
+    console.log(duplicatedData);
+    const newEstimate = await Estimates.create(duplicatedData);
+    console.log(newEstimate.estimateId,"vggf");
+    res.status(201).json(newEstimate);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
+
 
 router.put('/defaultestimate/:estimateid', async (req, res) => 
   {

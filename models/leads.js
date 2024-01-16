@@ -32,6 +32,7 @@ const Leads = sequelize.define('Leads', {
   IsOpportunity: {
     type: DataTypes.BOOLEAN,
     allowNull: false,
+    defaultValue:false
   },
   CreatedDate: {
     type: DataTypes.DATE,

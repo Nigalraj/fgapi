@@ -4,8 +4,8 @@ const sequelize = new Sequelize({
   dialect: 'mysql',
   host: 'localhost',
   username: 'root',
-  password: '1234567890',
-  database: 'crm',
+  password: 'root',
+  database: 'seq',
 });
 
 module.exports = sequelize;

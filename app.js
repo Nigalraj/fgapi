@@ -9,14 +9,14 @@ const VendorsRoutes = require('./routes/vendorsRoutes')
 const InventoryItemsRoutes = require('./routes/inventoryItemRoutes');
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3000; 
 
 app.use(bodyParser.json());
-
+ 
 app.use('/api/users', usersRoutes);
 app.use('/api/leads', leadsRoutes); 
 app.use('/api/estimates', estimatesRoutes);
-app.use('/api/workorders', WorkOrdersRoutes);
+app.use('/api/workorders', WorkOrdersRoutes); 
 app.use('/api/vendors',VendorsRoutes);
 app.use('/api/inventoryitems',InventoryItemsRoutes);
 

@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const db = require('./config/database');
+const cors = require('cors')
 const usersRoutes = require('./routes/usersRoutes');
 const leadsRoutes = require('./routes/leadsRoutes');
 const estimatesRoutes = require('./routes/estimatesRoutes');
@@ -9,8 +10,9 @@ const VendorsRoutes = require('./routes/vendorsRoutes')
 const InventoryItemsRoutes = require('./routes/inventoryItemRoutes');
 
 const app = express();
-const PORT = process.env.PORT || 3000; 
+const PORT = process.env.PORT || 3002; 
 
+app.use(cors())
 app.use(bodyParser.json());
  
 app.use('/api/users', usersRoutes);

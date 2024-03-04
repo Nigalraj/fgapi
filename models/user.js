@@ -15,9 +15,14 @@ const User = sequelize.define('User', {
     type: DataTypes.STRING,
     allowNull: false,
   },
+  Companyname: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
   Email: {
     type: DataTypes.STRING,
     allowNull: false,
+    unique:true
   },
   Password: {
     type: DataTypes.STRING,
@@ -29,35 +34,35 @@ const User = sequelize.define('User', {
   },
   createdby: {
     type: DataTypes.STRING,
-    allowNull: false,
+    allowNull: true,
   },
   isActive: {
     type: DataTypes.BOOLEAN,
-    allowNull: false,
+    allowNull: true,
   },
   isAdmin: {
     type: DataTypes.BOOLEAN,
-    allowNull: false,
+    allowNull: true,
   },
   isDeleted: {
     type: DataTypes.BOOLEAN,
-    allowNull: false,
+    allowNull: true,
   },
   RoleId: {
     type: DataTypes.INTEGER,
-    allowNull: false,
+    allowNull: true,
   },
   UpdatedBy: {
     type: DataTypes.STRING,
-    allowNull: false,
+    allowNull: true,
   },
   CreateDate: {
     type: DataTypes.DATE,
-    allowNull: false,
+    allowNull: true,
   },
   UpdateDate: {
     type: DataTypes.DATE,
-    allowNull: false,
+    allowNull: true,
   },
   AddressLine1: {
     type: DataTypes.STRING,

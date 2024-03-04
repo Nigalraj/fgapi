@@ -1,9 +1,10 @@
 const express = require('express');
 const router = express.Router();
 const workOrderController = require('../controllers/workOrderController');
+const authMiddleware = require('../middleware/authMiddleware');
 
-router.post('/', workOrderController.createWorkOrder);
-router.put('/:workOrderId', workOrderController.updateWorkOrder);
-router.delete('/:workOrderId', workOrderController.deleteWorkOrder);
+router.post('/', authMiddleware,workOrderController.createWorkOrder);
+router.put('/:workOrderId', authMiddleware,workOrderController.updateWorkOrder);
+router.delete('/:workOrderId',authMiddleware, workOrderController.deleteWorkOrder);
 
 module.exports = router;

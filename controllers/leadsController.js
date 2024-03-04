@@ -1,4 +1,3 @@
-// controllers/leadsController.js
 const Leads = require('../models/leads');
 const User = require('../models/user');
 

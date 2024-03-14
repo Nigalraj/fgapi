@@ -8,6 +8,7 @@ const estimatesRoutes = require('./routes/estimatesRoutes');
 const WorkOrdersRoutes = require('./routes/workOrderRoutes');
 const VendorsRoutes = require('./routes/vendorsRoutes')
 const InventoryItemsRoutes = require('./routes/inventoryItemRoutes');
+const CalenderRoutes = require('./routes/CalenderRoutes');
 
 const app = express();
 const PORT = process.env.PORT || 3002; 
@@ -21,6 +22,7 @@ app.use('/api/estimates', estimatesRoutes);
 app.use('/api/workorders', WorkOrdersRoutes); 
 app.use('/api/vendors',VendorsRoutes);
 app.use('/api/inventoryitems',InventoryItemsRoutes);
+app.use('/api/calender',CalenderRoutes);
 
 db.sync()
   .then(() => {

@@ -85,9 +85,9 @@ const loginUser = async (req, res) => {
 
             if (isPasswordValid) {
                
-                const accessToken = jwt.sign({ userId: user.userid }, 'your-access-secret-key', { expiresIn: '1h' });
+                const accessToken = jwt.sign({ userId: user.userid }, 'your-secret-key', { expiresIn: '1h' });
 
-                const referenceToken = jwt.sign({ userId: user.userid }, 'your-reference-secret-key', { expiresIn: '24h' });
+                const referenceToken = jwt.sign({ userId: user.userid }, 'your-secret-key', { expiresIn: '24h' });
 
                 res.status(200).json({ accessToken, referenceToken });
             } else {

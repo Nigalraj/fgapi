@@ -9,9 +9,10 @@ const WorkOrdersRoutes = require('./routes/workOrderRoutes');
 const VendorsRoutes = require('./routes/vendorsRoutes')
 const InventoryItemsRoutes = require('./routes/inventoryItemRoutes');
 const CalenderRoutes = require('./routes/CalenderRoutes');
-
+const OpportunityRoutes = require('./routes/OpportunityRoutes');
 const app = express();
 const PORT = process.env.PORT || 3002; 
+const CustomerRoutes = require('./routes/CustomerRoutes');
 
 app.use(cors())
 app.use(bodyParser.json());
@@ -23,6 +24,8 @@ app.use('/api/workorders', WorkOrdersRoutes);
 app.use('/api/vendors',VendorsRoutes);
 app.use('/api/inventoryitems',InventoryItemsRoutes);
 app.use('/api/calender',CalenderRoutes);
+app.use('/api/opportunity',OpportunityRoutes);
+app.use('/api/customers',CustomerRoutes);
 
 db.sync()
   .then(() => {

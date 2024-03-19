@@ -1,10 +1,10 @@
-const Calender = require('../models/calendar');
 
-const createCalender = async (req, res) => {
+const Customer = require('../models/customer');
+
+const createCustomer = async (req, res) => {
     
     try {
-       
-        const newLead = await Calender.create(req.body);
+        const newLead = await Customer.create(req.body);
         res.status(201).json(newLead);
     } catch (error) {
         console.error(error);
@@ -14,7 +14,7 @@ const createCalender = async (req, res) => {
 
 const getAll = async (req, res) => {
     try {
-        const leads = await Calender.findAll();
+        const leads = await Customer.findAll();
         res.status(200).json(leads);
     } catch (error) {
         console.error(error);
@@ -22,4 +22,5 @@ const getAll = async (req, res) => {
     }
 };
 
-module.exports = {createCalender,getAll};
+
+module.exports={createCustomer, getAll};

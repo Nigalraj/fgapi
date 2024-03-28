@@ -3,7 +3,6 @@ const Calender = require('../models/calendar');
 const createCalender = async (req, res) => {
     
     try {
-       
         const newLead = await Calender.create(req.body);
         res.status(201).json(newLead);
     } catch (error) {

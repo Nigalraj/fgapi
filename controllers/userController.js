@@ -102,10 +102,20 @@ const loginUser = async (req, res) => {
     }
 };
 
+const getAll = async (req, res) => {
+    try {
+        const leads = await User.findAll();
+        res.status(200).json(leads);
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+};
 
 
 module.exports = {
     createUser,
     activateUser,
-    loginUser
+    loginUser,
+    getAll
 };

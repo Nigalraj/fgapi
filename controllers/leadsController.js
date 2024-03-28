@@ -33,7 +33,6 @@ const updateOpportunityStatus = async (req, res) => {
     try {
         const { id } = req.params;
         const lead = await Leads.findByPk(id);
-
         if (!lead) {
             return res.status(404).json({ error: 'Lead not found.' });
         }
@@ -73,7 +72,6 @@ const createLeadWithUser = async (req, res) => {
             const newUser = await User.create(Users);
             leadsData.UserId = newUser.userid;
         }
-
         const newLead = await Leads.create(leadsData);
 
         res.status(201).json(newLead);

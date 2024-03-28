@@ -10,6 +10,7 @@ const createInventoryItem = async (req, res) => {
     }
 };
 
+
 const updateInventoryItem = async (req, res) => {
     const inventoryItemId = req.params.inventoryitemid;
     try {
@@ -27,6 +28,7 @@ const updateInventoryItem = async (req, res) => {
     }
 };
 
+
 const deleteInventoryItem = async (req, res) => {
     const inventoryItemId = req.params.InventoryItemId;
 
@@ -36,7 +38,6 @@ const deleteInventoryItem = async (req, res) => {
         if (!inventoryItem) {
             return res.status(404).json({ error: 'InventoryItem not found' });
         }
-
         await inventoryItem.destroy();
         res.json({ message: 'InventoryItem deleted successfully' });
     } catch (error) {
@@ -44,6 +45,7 @@ const deleteInventoryItem = async (req, res) => {
         res.status(500).json({ error: 'Internal Server Error' });
     }
 };
+
 
 
 module.exports = {

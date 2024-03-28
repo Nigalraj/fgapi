@@ -16,7 +16,6 @@ const createVendor = async (req, res) => {
 
 const updateVendor = async (req, res) => {
     const  VendorsId  = req.params.id;
-    console.log(VendorsId);
     try {
         const vendor = await Vendor.findByPk(VendorsId);
         console.log(vendor);
@@ -30,22 +29,6 @@ const updateVendor = async (req, res) => {
         res.status(500).json({ error: 'Internal Server Error' });
     }
 };
-
-//     const VendorId = req.params;
-//     console.log(VendorId);
-//     try {
-//         const vendor = await Vendor.findOne({ where: { id: VendorId } });
-//         if (!vendor) {
-//             return res.status(404).json({ error: 'Vendor not found' });
-//         }
-
-//         await vendor.update({ Active: true });
-//         res.status(200).json({ message: 'Vendor activated successfully' });
-//     } catch (error) {
-//         console.error(error);
-//         res.status(500).json({ error: 'Internal Server Error' });
-//     }
-// };
 
 const activateVendor = async (req, res) => {
     const VendorId = req.params.id;
@@ -70,7 +53,6 @@ const activateVendor = async (req, res) => {
         res.status(500).json({ error: 'Internal Server Error' });
     }
 };
-
 
 
 module.exports = {
